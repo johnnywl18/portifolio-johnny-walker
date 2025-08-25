@@ -1,0 +1,168 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background: rgba(10, 20, 40, 0.85);
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  margin-top: 40px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav .btn {
+  color: #00eaff;
+}
+
+nav .btn {
+  background: linear-gradient(90deg, #00eaff 0%, #0077ff 100%);
+  color: #0f2027;
+  padding: 8px 22px;
+  border-radius: 24px;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 12px;
+}
+
+nav .btn:hover {
+  background: #551A8B;
+  color: #0f2027;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0 40px 0;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  line-height: 1.2;
+}
+
+.hero-text h2 span {
+  color: #00eaff;
+}
+
+.cta {
+  background: linear-gradient(90deg, #00eaff 0%, #0077ff 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 38px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,234,255,0.15);
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 32px;
+}
+
+.cta:hover {
+  background: linear-gradient(90deg, #0077ff 0%, #00eaff 100%);
+  transform: translateY(-3px) scale(1.04);
+}
+
+.social-icons {
+  margin-top: 18px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.7rem;
+  margin-right: 18px;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-icons a:hover {
+  color: #00eaff;
+  transform: scale(1.15);
+}
+
+.hero-img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-img img {
+  width: 620px;
+  max-width: 100%;
+  filter: drop-shadow(0 8px 32px #00eaff55);
+  border-radius: 24px;
+}
+
+.hero-img {
+  width: 250px;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+
+
+
+
+
