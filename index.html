@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -8,15 +8,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+</head>
 </head>
 
 <body>
+<div id="tsparticles"></div>
   <header>
+
     <div class="container">
       <h1 class="logo">Johnny Walker / Full Stack Developer</h1>
       <nav>
         <ul>
-          <li><a href="#">START</a></li>
+          <li><a class="ok" href="#">START</a></li>
           <li><a href="#">ABOUT ME</a></li>
           <li><a href="#">PROJECTS</a></li>
       
@@ -24,22 +28,73 @@
         </ul>
       </nav>
     </div>
+
   </header>
 
   <section class="hero">
+
     <div class="hero-text">
+
       <h2>Explore the universe, where every click takes you <span> beyond the stars</span></h2>
-      <button class="cta">Decolar <i class="fas fa-rocket"></i></button>
+      <button class="cta">take off <i class="fas fa-rocket"></i></button>
       <div class="social-icons">
         <a href="#"><i class="fab fa-github"></i></a>
         <a href="#"><i class="fab fa-linkedin"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
+
     </div>
+
+    </div>
+
     <div class="hero-img">
       <img src="./img/logo-fundo.png" alt="Astronauta no espaço">
     </div>
   </section>
+  <script>
+    tsParticles.load("tsparticles", {
+      fullScreen: { enable: true },
+      background: { color: "#000" },
+      particles: {
+        number: { value: 120 },
+        color: { value: "#00eaff" },
+        shape: { type: "circle" },
+        opacity: {
+          value: 0.8,
+          random: { enable: true, minimumValue: 0.3 },
+          anim: { enable: true, speed: 1, opacity_min: 0.3, sync: false } // efeito cintilante
+        },
+        size: {
+          value: 2.5,
+          random: { enable: true, minimumValue: 1.5 }
+        },
+        links: {
+          enable: true,
+          distance: 130,
+          color: "#00eaff",
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 0.6,
+          direction: "none",
+          outModes: { default: "out" }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: { enable: true, mode: "repulse" },
+          onClick: { enable: true, mode: "push" }
+        },
+        modes: {
+          repulse: { distance: 100, duration: 0.4 },
+          push: { quantity: 4 }
+        }
+      },
+      detectRetina: true
+    });
+  </script>
+
 </body>
 
 </html>

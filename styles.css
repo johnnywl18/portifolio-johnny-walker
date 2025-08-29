@@ -1,4 +1,12 @@
-/* Reset básico */
+#tsparticles {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,26 +20,28 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
 header {
   background: rgba(10, 20, 40, 0.85);
   padding: 15px 0;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
   margin-top: 40px;
+  margin-inline: 125px; 
+  border-radius: 20px;
 }
 
+
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 100%;
+  padding-inline: 30px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 .logo {
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 600;
   color: #fff;
 }
 
@@ -40,7 +50,9 @@ nav ul {
   display: flex;
   gap: 32px;
 }
-
+.ok{
+  color: #eb08e7;
+}
 nav a {
   text-decoration: none;
   font-weight: 500;
@@ -66,18 +78,18 @@ nav .btn {
 nav .btn:hover {
   background: #551A8B;
   color: #0f2027;
+  transition: 1s ease-in-out;
 }
 
-/* Hero Section */
+
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 60px 0 40px 0;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px 125px 0 125px; /* mesmo alinhamento lateral */
 }
+
 
 .hero-text {
   flex: 1;
@@ -139,7 +151,7 @@ nav .btn:hover {
 .hero-img img {
   width: 620px;
   max-width: 100%;
-  filter: drop-shadow(0 8px 32px #00eaff55);
+  filter: drop-shadow(0 25px 32px #00eaff55);
   border-radius: 24px;
 }
 
@@ -153,7 +165,7 @@ nav .btn:hover {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-15px);
+    transform: translateY(-20px);
   }
   100% {
     transform: translateY(0px);
