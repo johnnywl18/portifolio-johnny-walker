@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Space-X - Portfólio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-</head>
-<body>
 
-  <div id="tsparticles"></div>
-  
-  <div class="menu-toggle" id="menu-toggle">
-    <span></span>
-    <span></span>
-    <span></span>
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space-X - Portfólio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/x-icon" href="./img/favicom.png">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <div id="tsparticles"></div>
+
+    <div class="menu-toggle" id="menu-toggle">
+       <span></span>
+       <span></span>
+       <span></span>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu">
+        <ul>
+          <li><a class="ok" href="#">START</a></li>
+          <li><a href="#">ABOUT ME</a></li>
+          <li><a href="#">PROJECTS</a></li>
+          <li><a href="#" class="btn">Contact</a></li>
+        </ul>
+
+    <div class="mobile-social-menu">
+          <a href="https://github.com/johnnywl18" target="_blank"><img src="./img/github.png" alt="Github"></a>
+          <a href="https://www.linkedin.com/in/johnny-walker31dev/" target="_blank"><img src="./img/icone-linkdil.png" alt="LinkedIn"></a>
+         <a href="https://wa.me/5531983429640" target="_blank"><img src="./img/icone-wats.png" alt="WhatsApp"></a>
+         <a href="mailto:walkerjfl0@gmail.com" target="_blank"><img src="./img/icone-email.png" alt="Email"></a>
+    </div>
+
+    </nav>
+
+    <div class="social-fixed">
+          <a href="https://github.com/johnnywl18" target="_blank"><img src="./img/github.png" alt="Github"></a>
+          <a href="https://www.linkedin.com/in/johnny-walker31dev/" target="_blank"><img src="./img/icone-linkdil.png" alt="LinkedIn"></a>
+          <a href="https://wa.me/5531983429640" target="_blank"><img src="./img/icone-wats.png" alt="WhatsApp"></a>
+          <a href="mailto:walkerjfl0@gmail.com" target="_blank"><img src="./img/icone-email.png" alt="Email"></a>
   </div>
-
-  <nav class="mobile-menu" id="mobile-menu">
-    <ul>
-      <li><a class="ok" href="#">START</a></li>
-      <li><a href="#">ABOUT ME</a></li>
-      <li><a href="#">PROJECTS</a></li>
-      <li><a href="#" class="btn">Contact</a></li>
-    </ul>
-  </nav>
 
   <header>
     <div class="container">
@@ -43,25 +63,24 @@
   </header>
 
   <section class="hero">
-    <div class="hero-text">
+    <div class="hero-text fade-in">
       <h2>
-        Explore the universe, where every click takes you
-        <span>beyond the stars</span>
+           Explore the universe, where every click takes you
+          <span>beyond the stars</span>
       </h2>
       <button class="cta">
         take off <i class="fas fa-rocket"></i>
       </button>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
     </div>
 
-    <div class="hero-img">
+    <div class="hero-img fade-in">
       <img src="./img/logo-fundo.png" alt="Astronauta no espaço">
     </div>
   </section>
+
+  <footer>
+    <p>© 2025 Johnny Walker. All rights reserved.</p>
+  </footer>
 
   <script src="scripts.js"></script>
 </body>
