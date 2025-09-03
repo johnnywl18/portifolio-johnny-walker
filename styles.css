@@ -144,7 +144,7 @@ nav .btn:hover { background: #eb08e7; color: #fff; }
   animation: glow 3s infinite alternate;
 }
 
-@keyframes glow { from { box-shadow: 0 0 10px #00eaff55; } to { box-shadow: 0 0 24px #00eaffaa, 0 0 40px #eb08e7aa; } }
+@keyframes glow { from { box-shadow: 0 0 10px #00eaff55; } to { box-shadow: 0 0 24px #00eaffaa } }
 
 footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa; }
 
