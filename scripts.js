@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
 tsParticles.load("tsparticles", {
 fullScreen: { enable: true },

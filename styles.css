@@ -243,7 +243,6 @@ footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
   .cta { padding: 10px 25px; font-size: 1rem; }
 }
 
-/* Serviços */
 .services {
   max-width: 1300px;
   margin: 50px auto;
@@ -254,7 +253,8 @@ footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
 .services-container h2 {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #00eaff;
+  color: #00eaff; /* LED */
+  text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff, 0 0 30px #00eaff;
 }
 
 .services-grid {
@@ -264,23 +264,29 @@ footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
 }
 
 .service-card {
+  position: relative;
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   border-radius: 20px;
   padding: 30px 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 10px;                  /* margem solicitada */
+  border: 2px solid #00eaff55;   /* contorno LED */
+  box-shadow: 0 0 12px #00eaff55;/* glow inicial */
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
 }
 
 .service-card i {
   font-size: 2.5rem;
   color: #00eaff;
   margin-bottom: 15px;
+  text-shadow: 0 0 6px #00eaff, 0 0 18px #00eaff;
 }
 
 .service-card h3 {
   font-size: 1.3rem;
   margin-bottom: 10px;
+  color: #00eaff; /* títulos com LED */
+  text-shadow: 0 0 5px #00eaff, 0 0 15px #00eaff, 0 0 30px #00eaff;
 }
 
 .service-card p {
@@ -289,9 +295,15 @@ footer { text-align: center; padding: 40px 20px; font-size: 0.9rem; color: #aaa;
   color: #ccc;
 }
 
+@keyframes balloon-float {
+  0%   { transform: translateY(0) scale(1.00); }
+  50%  { transform: translateY(-12px) scale(1.03); }
+  100% { transform: translateY(0) scale(1.00); }
+}
+
 .service-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+  animation: balloon-float 2.6s ease-in-out infinite;
+  box-shadow: 0 0 22px #00eaffaa, 0 0 46px #eb08e7aa; /* glow mais forte */
 }
 
 @media (max-width: 900px) {
