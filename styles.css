@@ -126,6 +126,7 @@ nav .btn:hover {
   display: flex;
   gap: 20px;
   margin-top: 20px;
+  margin-left: 18px;
 }
 
 .hero-buttons button {
@@ -161,6 +162,7 @@ nav .btn:hover {
   filter: drop-shadow(0 25px 32px #00eaff55);
   border-radius: 20px;
   transition: transform 0.3s ease;
+  margin-right: 50px;
 }
 
 .hero-img img:hover {
