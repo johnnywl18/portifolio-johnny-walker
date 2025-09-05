@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
   tsParticles.load("tsparticles", {
     fullScreen: { enable: true },
@@ -15,8 +14,41 @@ window.addEventListener("load", () => {
     interactivity: { events: { onHover: { enable: true, mode: "repulse" }, onClick: { enable: true, mode: "push" } }, modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } } },
     detectRetina: true
   });
+
+  // Inicialmente escondendo todas as seções abaixo do hero
+  const sectionServices = document.getElementById("services");
+  const sectionSkills = document.getElementById("skills");
+  const sectionAbout = document.getElementById("about");
+  const sectionProjects = document.getElementById("projects");
+
+  sectionServices.style.display = "none";
+  sectionSkills.style.display = "none";
+  sectionAbout.style.display = "none";
+  sectionProjects.style.display = "none";
+
+  // Botões
+  const btnTecnico = document.getElementById("btn-tecnico");
+  const btnEmpresas = document.getElementById("btn-empresas");
+
+  btnTecnico.addEventListener("click", () => {
+    sectionServices.style.display = "none";
+    sectionSkills.style.display = "block";
+    sectionAbout.style.display = "block";
+    sectionProjects.style.display = "block";
+    sectionSkills.scrollIntoView({ behavior: "smooth" });
+  });
+
+  btnEmpresas.addEventListener("click", () => {
+    sectionServices.style.display = "block";
+    sectionSkills.style.display = "none";
+    sectionAbout.style.display = "block";
+    sectionProjects.style.display = "block";
+    sectionServices.scrollIntoView({ behavior: "smooth" });
+  });
+
 });
 
+// Menu mobile
 const menuToggle = document.getElementById("menu-toggle");
 const mobileMenu = document.getElementById("mobile-menu");
 menuToggle.addEventListener("click", () => {
@@ -30,6 +62,7 @@ document.querySelectorAll(".mobile-menu a").forEach(link => {
   });
 });
 
+// Scroll suave
 const HEADER_OFFSET = 70;
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", e => {
@@ -43,29 +76,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
+// Header shrink
 const header = document.querySelector("header");
 const toggleHeader = () => { if (window.scrollY > 60) header.classList.add("shrink"); else header.classList.remove("shrink"); };
 window.addEventListener("scroll", toggleHeader);
 toggleHeader();
-
-const btnTecnico = document.getElementById("btn-tecnico");
-const btnEmpresas = document.getElementById("btn-empresas");
-
-const sectionServices = document.getElementById("services");
-const sectionSkills = document.getElementById("skills");
-const sectionAbout = document.getElementById("about");
-const sectionProjects = document.getElementById("projects");
-
-btnTecnico.addEventListener("click", () => {
-  sectionServices.style.display = "none";
-  sectionSkills.style.display = "block";
-  sectionProjects.style.display = "block";
-  sectionAbout.style.display = "block";
-});
-
-btnEmpresas.addEventListener("click", () => {
-  sectionServices.style.display = "block";
-  sectionSkills.style.display = "none";
-  sectionProjects.style.display = "block";
-  sectionAbout.style.display = "block";
-});
