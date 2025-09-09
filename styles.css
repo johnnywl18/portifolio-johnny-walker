@@ -1,3 +1,4 @@
+/* ======================== RESET ======================== */
 * {
   margin: 0;
   padding: 0;
@@ -15,6 +16,7 @@ body {
   min-height: 100vh;
 }
 
+/* ======================== PARTICULAS ======================== */
 #tsparticles {
   position: fixed;
   width: 100%;
@@ -23,6 +25,7 @@ body {
   z-index: -1;
 }
 
+/* ======================== HEADER ======================== */
 header {
   position: fixed;
   top: 15px;
@@ -96,6 +99,7 @@ nav .btn:hover {
   color: #fff;
 }
 
+/* ======================== HERO ======================== */
 .hero {
   display: flex;
   align-items: center;
@@ -109,7 +113,7 @@ nav .btn:hover {
 
 .hero-text {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
 }
 
 .hero-text h2 {
@@ -127,7 +131,6 @@ nav .btn:hover {
   display: flex;
   gap: 20px;
   margin-top: 20px;
-  margin-left: 18px;
   flex-wrap: wrap;
 }
 
@@ -159,24 +162,20 @@ nav .btn:hover {
 }
 
 .hero-img img {
-  width: 600px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
   filter: drop-shadow(0 25px 32px #00eaff55);
   border-radius: 20px;
   transition: transform 0.3s ease;
-  margin-right: 50px;
 }
 
 .hero-img img:hover {
   transform: scale(1.05);
 }
 
-@keyframes flutuar {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-}
-
+/* ======================== ABOUT ======================== */
 .about {
   max-width: 1300px;
   margin: 50px auto;
@@ -211,12 +210,6 @@ nav .btn:hover {
   animation: flutuar-photo 3s ease-in-out infinite;
 }
 
-@keyframes flutuar-photo {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
 .about-text {
   flex: 2;
   max-width: 600px;
@@ -243,11 +236,7 @@ nav .btn:hover {
   animation: glow 3s infinite alternate;
 }
 
-@keyframes glow {
-  from { box-shadow: 0 0 10px #00eaff55; }
-  to { box-shadow: 0 0 24px #00eaffaa; }
-}
-
+/* ======================== FOOTER ======================== */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -255,6 +244,7 @@ footer {
   color: #aaa;
 }
 
+/* ======================== SOCIAL ======================== */
 .social-fixed {
   position: fixed;
   top: 50%;
@@ -280,6 +270,7 @@ footer {
   box-shadow: 0 0 15px #00eaff, 0 0 30px #eb08e7;
 }
 
+/* ======================== MENU MOBILE ======================== */
 .menu-toggle {
   display: none;
   position: fixed;
@@ -362,27 +353,87 @@ footer {
   margin-top: 30px;
 }
 
-@media (max-width: 1200px) {
-  .menu-toggle { display: flex; }
-  .mobile-menu { display: flex; }
-  nav ul { display: none; }
-  .social-fixed { display: none; }
+/* ======================== PROJETOS ======================== */
+.projects .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
 }
 
-@media (max-width: 900px) {
-  header { position: static; transform: none; margin-top: 75px; border-radius: 0; width: 100%; }
-  .hero { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
-  .about-container { flex-direction: column; text-align: center; max-width: 400px; margin: 0 auto; }
-  .about-img { margin-bottom: 20px; margin-top: 25px; }
+.projects .service-card {
+  background: rgba(255,255,255,0.03);
+  border: 2px solid #00eaff55;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 12px #00eaff55;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-@media (max-width: 600px) {
-  .logo { font-size: 1.2rem; text-align: center; }
-  .hero-text h2 { font-size: 1.6rem; margin-top: 90px; }
-  .hero-buttons { flex-direction: column; gap: 15px; margin-left: 0; }
-  .cta { padding: 10px 25px; font-size: 1rem; }
+.projects .service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 22px #00eaffaa, 0 0 46px #eb08e7aa;
 }
 
+.projects .project-img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.projects .project-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #00eaff, 0 0 30px #eb08e7;
+}
+
+.projects .service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #00eaff;
+  text-align: center;
+}
+
+.projects .service-card p {
+  font-size: 1rem;
+  color: #ccc;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.projects .project-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.projects .project-links a {
+  text-decoration: none;
+  color: #0f2027;
+  background: linear-gradient(90deg, #00eaff 0%, #0077ff 100%);
+  padding: 12px 25px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 8px #00eaff55, 0 0 16px #eb08e755;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+.projects .project-links a:hover {
+  animation: balloon-float 2.6s ease-in-out infinite;
+  box-shadow: 0 0 22px #00eaffaa, 0 0 46px #eb08e7aa;
+  transform: translateY(-4px);
+}
+
+/* ======================== SEÇÕES ======================== */
 .services, .skills, .projects {
   max-width: 1300px;
   margin: 50px auto;
@@ -458,21 +509,74 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* ======================== ANIMAÇÕES ======================== */
 @keyframes balloon-float {
   0% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-12px) scale(1.03); }
   100% { transform: translateY(0) scale(1); }
 }
 
+@keyframes flutuar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes flutuar-photo {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px #00eaff55; }
+  to { box-shadow: 0 0 24px #00eaffaa; }
+}
+
+/* ======================== MEDIA QUERIES ======================== */
+
+/* Desktops médios */
+@media (max-width: 1200px) {
+  .menu-toggle { display: flex; }
+  .mobile-menu { display: flex; }
+  nav ul { display: none; }
+  .social-fixed { display: none; }
+}
+
+/* Tablets / laptops */
 @media (max-width: 900px) {
+  header { position: static; transform: none; margin-top: 75px; border-radius: 0; width: 100%; }
+  .hero { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
+  .about-container { flex-direction: column; text-align: center; max-width: 375px; margin: 0 auto; }
+  .about-img { margin-bottom: 20px; margin-top: 25px; }
   .services-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* Celulares grandes */
 @media (max-width: 600px) {
+  .logo { font-size: 1.2rem; text-align: center; }
+  .hero-text h2 { font-size: 1.6rem; margin-top: 90px; }
+  .hero-buttons { flex-direction: column; gap: 15px; margin-left: 0; }
+  .cta { padding: 10px 25px; font-size: 1rem; }
   .services-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+  .hero-img img { max-width: 90%; margin: 0 auto; margin-right: 35px;}
 }
 
+/* Celulares pequenos */
 @media (max-width: 450px) {
   .hero-text h2 { font-size: 1.4rem; margin-top: 60px; }
+  .about-text h2 { font-size: 1.6rem; }
+  .about-text p { font-size: 1rem; }
+  .projects .project-links a { padding: 10px 20px; font-size: 0.95rem; }
+  .hero-buttons button { padding: 10px 20px; font-size: 0.95rem; }
+}
+
+/* Ultra mobile / 320px */
+@media (max-width: 350px) {
+  .hero-text h2 { font-size: 1.2rem; }
+  .about-text h2 { font-size: 1.4rem; }
+  .about-text p { font-size: 0.95rem; }
+  .hero-buttons button, .projects .project-links a { padding: 8px 15px; font-size: 0.85rem; }
+  .about-img img { width: 200px; height: 200px; }
 }
