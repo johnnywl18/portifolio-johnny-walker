@@ -1,32 +1,31 @@
 window.addEventListener("load", () => {
-  /* ======================== PARTICULAS ======================== */
   tsParticles.load("tsparticles", {
-    fullScreen: { enable: true },
-    background: { color: "#000" },
-    particles: {
-      number: { value: 65 },
-      color: { value: "#00eaff" },
-      shape: { type: "circle" },
-      opacity: {
-        value: 0.8,
-        random: { enable: true, minimumValue: 0.3 },
-        anim: { enable: true, speed: 4, opacity_min: 0.3, sync: false }
-      },
-      size: { value: 2.5, random: { enable: true, minimumValue: 1.5 } },
-      links: { enable: false },
-      move: { enable: true, speed: 0.4, direction: "none", outModes: { default: "out" } }
-    },
-    interactivity: {
-      events: {
-        onHover: { enable: true, mode: "repulse" },
-        onClick: { enable: true, mode: "push" }
-      },
-      modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
-    },
-    detectRetina: true
-  });
+  fullScreen: { enable: true },
+  background: { color: "#000" },
+  particles: {
+  number: { value: 65 },
+  color: { value: "#00eaff" },
+  shape: { type: "circle" },
+  opacity: {
+  value: 0.8,
+  random: { enable: true, minimumValue: 0.3 },
+  anim: { enable: true, speed: 4, opacity_min: 0.3, sync: false }
+},
 
-  /* ======================== SEÇÕES ======================== */
+  size: { value: 2.5, random: { enable: true, minimumValue: 1.5 } },
+  links: { enable: false },
+  move: { enable: true, speed: 0.4, direction: "none", outModes: { default: "out" } }
+},
+  interactivity: {
+  events: {
+  onHover: { enable: true, mode: "repulse" },
+  onClick: { enable: true, mode: "push" }
+},
+  modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
+},
+  detectRetina: true
+});
+
   const sectionServices = document.getElementById("services");
   const sectionSkills = document.getElementById("skills");
   const sectionAbout = document.getElementById("about");
@@ -37,14 +36,12 @@ window.addEventListener("load", () => {
   sectionAbout.style.display = "none";
   sectionProjects.style.display = "none";
 
-  /* ======================== BOTÕES HERO ======================== */
   const btnTecnico = document.getElementById("btn-tecnico");
   const btnEmpresas = document.getElementById("btn-empresas");
   const btnIdioma = document.getElementById("btn-idioma");
 
-  let idioma = "PT"; // Estado inicial do idioma
+  let idioma = "PT"; 
 
-  /* ======================== TRADUÇÃO ======================== */
   const textos = {
     PT: {
       menu: ["Início", "Serviços", "Habilidades", "Sobre Mim", "Projetos"],
@@ -105,7 +102,6 @@ window.addEventListener("load", () => {
   function atualizarIdioma() {
     const t = textos[idioma];
 
-    // Menu desktop e mobile
     document.getElementById("menu-top").textContent = t.menu[0];
     document.getElementById("menu-services").textContent = t.menu[1];
     document.getElementById("menu-skills").textContent = t.menu[2];
@@ -118,28 +114,23 @@ window.addEventListener("load", () => {
     document.getElementById("menu-about-desktop").textContent = t.menu[3];
     document.getElementById("menu-projects-desktop").textContent = t.menu[4];
 
-    // Hero
     document.querySelector(".hero-text h2").innerHTML = t.hero;
 
     btnTecnico.textContent = t.btnTecnico;
     btnEmpresas.textContent = t.btnEmpresas;
 
-    // Serviços
     document.getElementById("services-title").textContent = t.servicesTitle;
     t.services.forEach((s, i) => {
       document.getElementById(`service-${i+1}-title`).textContent = s[0];
       document.getElementById(`service-${i+1}-desc`).textContent = s[1];
     });
 
-    // Skills
     document.getElementById("skills-title").textContent = t.skillsTitle;
 
-    // About
     document.getElementById("about-title").textContent = t.aboutTitle;
     document.getElementById("about-text-1").textContent = t.aboutTexts[0];
     document.getElementById("about-text-2").textContent = t.aboutTexts[1];
 
-    // Projects
     document.getElementById("projects-title").textContent = t.projectsTitle;
     const projectCards = document.querySelectorAll(".projects .service-card");
     projectCards.forEach((card, index) => {
@@ -151,7 +142,6 @@ window.addEventListener("load", () => {
     });
   }
 
-  /* ======================== BOTÕES TÉCNICO / EMPRESAS ======================== */
   btnTecnico.addEventListener("click", () => {
     sectionServices.style.display = "none";
     sectionSkills.style.display = "block";
@@ -170,14 +160,12 @@ window.addEventListener("load", () => {
     sectionServices.scrollIntoView({ behavior: "smooth" });
   });
 
-  /* ======================== BOTÃO DE IDIOMA ======================== */
   btnIdioma.addEventListener("click", () => {
     idioma = idioma === "PT" ? "EN" : "PT";
     btnIdioma.textContent = idioma === "PT" ? "EN" : "PT";
     atualizarIdioma();
   });
 
-  /* ======================== MENU HAMBÚRGUER ======================== */
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
 
@@ -185,7 +173,6 @@ window.addEventListener("load", () => {
     menuToggle.classList.toggle("active");
     mobileMenu.classList.toggle("active");
   });
-
-  /* ======================== INICIALIZAÇÃO ======================== */
+  
   atualizarIdioma();
 });

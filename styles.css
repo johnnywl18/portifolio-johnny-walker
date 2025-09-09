@@ -1,4 +1,3 @@
-/* ======================== RESET ======================== */
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +15,6 @@ body {
   min-height: 100vh;
 }
 
-/* ======================== PARTICULAS ======================== */
 #tsparticles {
   position: fixed;
   width: 100%;
@@ -25,7 +23,6 @@ body {
   z-index: -1;
 }
 
-/* ======================== HEADER ======================== */
 header {
   position: fixed;
   top: 15px;
@@ -99,7 +96,6 @@ nav .btn:hover {
   color: #fff;
 }
 
-/* ======================== HERO ======================== */
 .hero {
   display: flex;
   align-items: center;
@@ -175,7 +171,6 @@ nav .btn:hover {
   transform: scale(1.05);
 }
 
-/* ======================== ABOUT ======================== */
 .about {
   max-width: 1300px;
   margin: 50px auto;
@@ -236,7 +231,6 @@ nav .btn:hover {
   animation: glow 3s infinite alternate;
 }
 
-/* ======================== FOOTER ======================== */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -244,7 +238,6 @@ footer {
   color: #aaa;
 }
 
-/* ======================== SOCIAL ======================== */
 .social-fixed {
   position: fixed;
   top: 50%;
@@ -270,7 +263,6 @@ footer {
   box-shadow: 0 0 15px #00eaff, 0 0 30px #eb08e7;
 }
 
-/* ======================== MENU MOBILE ======================== */
 .menu-toggle {
   display: none;
   position: fixed;
@@ -353,7 +345,6 @@ footer {
   margin-top: 30px;
 }
 
-/* ======================== PROJETOS ======================== */
 .projects .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -433,7 +424,6 @@ footer {
   transform: translateY(-4px);
 }
 
-/* ======================== SEÇÕES ======================== */
 .services, .skills, .projects {
   max-width: 1300px;
   margin: 50px auto;
@@ -509,7 +499,6 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ======================== ANIMAÇÕES ======================== */
 @keyframes balloon-float {
   0% { transform: translateY(0) scale(1); }
   50% { transform: translateY(-12px) scale(1.03); }
@@ -533,9 +522,7 @@ footer {
   to { box-shadow: 0 0 24px #00eaffaa; }
 }
 
-/* ======================== MEDIA QUERIES ======================== */
 
-/* Desktops médios */
 @media (max-width: 1200px) {
   .menu-toggle { display: flex; }
   .mobile-menu { display: flex; }
@@ -543,7 +530,6 @@ footer {
   .social-fixed { display: none; }
 }
 
-/* Tablets / laptops */
 @media (max-width: 900px) {
   header { position: static; transform: none; margin-top: 75px; border-radius: 0; width: 100%; }
   .hero { flex-direction: column-reverse; text-align: center; padding-top: 140px; }
@@ -552,7 +538,6 @@ footer {
   .services-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* Celulares grandes */
 @media (max-width: 600px) {
   .logo { font-size: 1.2rem; text-align: center; }
   .hero-text h2 { font-size: 1.6rem; margin-top: 90px; }
@@ -563,7 +548,6 @@ footer {
   .hero-img img { max-width: 90%; margin: 0 auto; margin-right: 35px;}
 }
 
-/* Celulares pequenos */
 @media (max-width: 450px) {
   .hero-text h2 { font-size: 1.4rem; margin-top: 60px; }
   .about-text h2 { font-size: 1.6rem; }
@@ -572,7 +556,6 @@ footer {
   .hero-buttons button { padding: 10px 20px; font-size: 0.95rem; }
 }
 
-/* Ultra mobile / 320px */
 @media (max-width: 350px) {
   .hero-text h2 { font-size: 1.2rem; }
   .about-text h2 { font-size: 1.4rem; }
