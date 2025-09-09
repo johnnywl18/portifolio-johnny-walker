@@ -1,46 +1,44 @@
 window.addEventListener("load", () => {
+  // Partículas
   tsParticles.load("tsparticles", {
-  fullScreen: { enable: true },
-  background: { color: "#000" },
-  particles: {
-  number: { value: 65 },
-  color: { value: "#00eaff" },
-  shape: { type: "circle" },
-  opacity: {
-  value: 0.8,
-  random: { enable: true, minimumValue: 0.3 },
-  anim: { enable: true, speed: 4, opacity_min: 0.3, sync: false }
-},
+    fullScreen: { enable: true },
+    background: { color: "#000" },
+    particles: {
+      number: { value: 65 },
+      color: { value: "#00eaff" },
+      shape: { type: "circle" },
+      opacity: {
+        value: 0.8,
+        random: { enable: true, minimumValue: 0.3 },
+        anim: { enable: true, speed: 4, opacity_min: 0.3, sync: false }
+      },
+      size: { value: 2.5, random: { enable: true, minimumValue: 1.5 } },
+      links: { enable: false },
+      move: { enable: true, speed: 0.4, direction: "none", outModes: { default: "out" } }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true, mode: "repulse" },
+        onClick: { enable: true, mode: "push" }
+      },
+      modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
+    },
+    detectRetina: true
+  });
 
-  size: { value: 2.5, random: { enable: true, minimumValue: 1.5 } },
-  links: { enable: false },
-  move: { enable: true, speed: 0.4, direction: "none", outModes: { default: "out" } }
-},
-  interactivity: {
-  events: {
-  onHover: { enable: true, mode: "repulse" },
-  onClick: { enable: true, mode: "push" }
-},
-  modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
-},
-  detectRetina: true
-});
-
+  // Seções
   const sectionServices = document.getElementById("services");
   const sectionSkills = document.getElementById("skills");
-  const sectionAbout = document.getElementById("about");
+  const sectionAboutTecnico = document.getElementById("about-tecnico");
+  const sectionAboutEmpresas = document.getElementById("about-empresas");
   const sectionProjects = document.getElementById("projects");
 
-  sectionServices.style.display = "none";
-  sectionSkills.style.display = "none";
-  sectionAbout.style.display = "none";
-  sectionProjects.style.display = "none";
-
+  // Botões
   const btnTecnico = document.getElementById("btn-tecnico");
   const btnEmpresas = document.getElementById("btn-empresas");
   const btnIdioma = document.getElementById("btn-idioma");
 
-  let idioma = "PT"; 
+  let idioma = "PT";
 
   const textos = {
     PT: {
@@ -49,6 +47,17 @@ window.addEventListener("load", () => {
       btnTecnico: "Técnico",
       btnEmpresas: "Soluções para Empresas",
       servicesTitle: "Serviços",
+      skillsTitle: "Habilidades",
+      aboutTitleTecnico: "Sobre Técnico",
+      aboutTextsTecnico: [
+        "Olá! Eu sou Johnny Walker, desenvolvedor front-end em transição de carreira. Atualmente estudo HTML, CSS e JavaScript no DevClub e estou construindo projetos modernos e responsivos.",
+        "Meu objetivo é criar experiências digitais envolventes e intuitivas, sempre com foco em aprendizado contínuo e evolução profissional."
+      ],
+      aboutTitleEmpresas: "Soluções para Empresas",
+      aboutTextsEmpresas: [
+        "Oferecemos soluções digitais completas para empresas, desde sites institucionais até lojas online e automação com IA.",
+        "Nosso objetivo é transformar seu negócio, tornando-o mais eficiente, moderno e competitivo no mercado digital."
+      ],
       services: [
         ["Desenvolvimento de Landing Pages", "Criamos páginas otimizadas para conversão, modernas e responsivas."],
         ["Sites Institucionais", "Construção de sites corporativos que transmitem credibilidade e profissionalismo."],
@@ -56,12 +65,6 @@ window.addEventListener("load", () => {
         ["Automação com IA", "Integramos inteligência artificial para otimizar processos do seu negócio."],
         ["Prototipação do seu negócio", "Transformamos ideias em protótipos digitais para testar e validar projetos."],
         ["Atualização de Sites", "Atualizamos e modernizamos seu site com tecnologia e design atual."]
-      ],
-      skillsTitle: "Habilidades",
-      aboutTitle: "Sobre Mim",
-      aboutTexts: [
-        "Olá! Eu sou Johnny Walker, desenvolvedor front-end em transição de carreira. Atualmente estudo HTML, CSS e JavaScript no DevClub e estou construindo projetos modernos e responsivos.",
-        "Meu objetivo é criar experiências digitais envolventes e intuitivas, sempre com foco em aprendizado contínuo e evolução profissional."
       ],
       projectsTitle: "Projetos",
       projects: [
@@ -76,6 +79,17 @@ window.addEventListener("load", () => {
       btnTecnico: "Technical",
       btnEmpresas: "Business Solutions",
       servicesTitle: "Services",
+      skillsTitle: "Skills",
+      aboutTitleTecnico: "Technical",
+      aboutTextsTecnico: [
+        "Hello! I'm Johnny Walker, a front-end developer in career transition. I currently study HTML, CSS, and JavaScript at DevClub and build modern, responsive projects.",
+        "My goal is to create engaging and intuitive digital experiences, always focusing on continuous learning and professional growth."
+      ],
+      aboutTitleEmpresas: "Business Solutions",
+      aboutTextsEmpresas: [
+        "We offer complete digital solutions for businesses, from corporate websites to online stores and AI automation.",
+        "Our goal is to transform your business, making it more efficient, modern, and competitive in the digital market."
+      ],
       services: [
         ["Landing Page Development", "We create modern, responsive pages optimized for conversion."],
         ["Corporate Websites", "Building corporate websites that convey credibility and professionalism."],
@@ -83,12 +97,6 @@ window.addEventListener("load", () => {
         ["AI Automation", "We integrate artificial intelligence to optimize your business processes."],
         ["Business Prototyping", "We turn ideas into digital prototypes to test and validate projects."],
         ["Website Updates", "We update and modernize your website with current technology and design."]
-      ],
-      skillsTitle: "Skills",
-      aboutTitle: "About Me",
-      aboutTexts: [
-        "Hello! I'm Johnny Walker, a front-end developer in career transition. I currently study HTML, CSS, and JavaScript at DevClub and build modern, responsive projects.",
-        "My goal is to create engaging and intuitive digital experiences, always focusing on continuous learning and professional growth."
       ],
       projectsTitle: "Projects",
       projects: [
@@ -102,50 +110,72 @@ window.addEventListener("load", () => {
   function atualizarIdioma() {
     const t = textos[idioma];
 
-    document.getElementById("menu-top").textContent = t.menu[0];
-    document.getElementById("menu-services").textContent = t.menu[1];
-    document.getElementById("menu-skills").textContent = t.menu[2];
-    document.getElementById("menu-about").textContent = t.menu[3];
-    document.getElementById("menu-projects").textContent = t.menu[4];
+    const setText = (id, text) => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = text;
+    };
 
-    document.getElementById("menu-top-desktop").textContent = t.menu[0];
-    document.getElementById("menu-services-desktop").textContent = t.menu[1];
-    document.getElementById("menu-skills-desktop").textContent = t.menu[2];
-    document.getElementById("menu-about-desktop").textContent = t.menu[3];
-    document.getElementById("menu-projects-desktop").textContent = t.menu[4];
+    // Menu
+    setText("menu-top", t.menu[0]);
+    setText("menu-services", t.menu[1]);
+    setText("menu-skills", t.menu[2]);
+    setText("menu-about", t.menu[3]);
+    setText("menu-projects", t.menu[4]);
 
-    document.querySelector(".hero-text h2").innerHTML = t.hero;
+    setText("menu-top-desktop", t.menu[0]);
+    setText("menu-services-desktop", t.menu[1]);
+    setText("menu-skills-desktop", t.menu[2]);
+    setText("menu-about-desktop", t.menu[3]);
+    setText("menu-projects-desktop", t.menu[4]);
 
-    btnTecnico.textContent = t.btnTecnico;
-    btnEmpresas.textContent = t.btnEmpresas;
+    // Hero
+    const heroH2 = document.querySelector(".hero-text h2");
+    if (heroH2) heroH2.innerHTML = t.hero;
 
-    document.getElementById("services-title").textContent = t.servicesTitle;
+    // Botões
+    if (btnTecnico) btnTecnico.textContent = t.btnTecnico;
+    if (btnEmpresas) btnEmpresas.textContent = t.btnEmpresas;
+
+    // Serviços
+    setText("services-title", t.servicesTitle);
     t.services.forEach((s, i) => {
-      document.getElementById(`service-${i+1}-title`).textContent = s[0];
-      document.getElementById(`service-${i+1}-desc`).textContent = s[1];
+      setText(`service-${i + 1}-title`, s[0]);
+      setText(`service-${i + 1}-desc`, s[1]);
     });
 
-    document.getElementById("skills-title").textContent = t.skillsTitle;
+    // Skills
+    setText("skills-title", t.skillsTitle);
 
-    document.getElementById("about-title").textContent = t.aboutTitle;
-    document.getElementById("about-text-1").textContent = t.aboutTexts[0];
-    document.getElementById("about-text-2").textContent = t.aboutTexts[1];
+    // Sobre Técnico
+    setText("about-tecnico-title", t.aboutTitleTecnico);
+    setText("about-tecnico-text-1", t.aboutTextsTecnico[0]);
+    setText("about-tecnico-text-2", t.aboutTextsTecnico[1]);
 
-    document.getElementById("projects-title").textContent = t.projectsTitle;
+    // Sobre Empresas
+    setText("about-empresas-title", t.aboutTitleEmpresas);
+    setText("about-empresas-text-1", t.aboutTextsEmpresas[0]);
+    setText("about-empresas-text-2", t.aboutTextsEmpresas[1]);
+
+    // Projetos
+    setText("projects-title", t.projectsTitle);
     const projectCards = document.querySelectorAll(".projects .service-card");
     projectCards.forEach((card, index) => {
-      card.querySelector("h3").textContent = t.projects[index][0];
-      card.querySelector("p").textContent = t.projects[index][1];
+      const h3 = card.querySelector("h3");
+      const p = card.querySelector("p");
       const links = card.querySelectorAll(".project-links a");
-      links[0].textContent = t.projects[index][2];
-      links[1].textContent = t.projects[index][3];
+      if (h3) h3.textContent = t.projects[index][0];
+      if (p) p.textContent = t.projects[index][1];
+      if (links[0]) links[0].textContent = t.projects[index][2];
+      if (links[1]) links[1].textContent = t.projects[index][3];
     });
   }
 
+  // Botões principais
   btnTecnico.addEventListener("click", () => {
     sectionServices.style.display = "none";
     sectionSkills.style.display = "block";
-    sectionAbout.style.display = "block";
+    sectionAboutTecnico.style.display = "block";
+    sectionAboutEmpresas.style.display = "none";
     sectionProjects.style.display = "block";
     atualizarIdioma();
     sectionSkills.scrollIntoView({ behavior: "smooth" });
@@ -154,18 +184,21 @@ window.addEventListener("load", () => {
   btnEmpresas.addEventListener("click", () => {
     sectionServices.style.display = "block";
     sectionSkills.style.display = "none";
-    sectionAbout.style.display = "block";
+    sectionAboutTecnico.style.display = "none";
+    sectionAboutEmpresas.style.display = "block";
     sectionProjects.style.display = "block";
     atualizarIdioma();
     sectionServices.scrollIntoView({ behavior: "smooth" });
   });
 
+  // Botão idioma
   btnIdioma.addEventListener("click", () => {
     idioma = idioma === "PT" ? "EN" : "PT";
     btnIdioma.textContent = idioma === "PT" ? "EN" : "PT";
     atualizarIdioma();
   });
 
+  // Menu mobile
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
 
@@ -173,6 +206,7 @@ window.addEventListener("load", () => {
     menuToggle.classList.toggle("active");
     mobileMenu.classList.toggle("active");
   });
-  
+
+  // Inicializa idioma
   atualizarIdioma();
 });
