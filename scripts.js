@@ -1,40 +1,23 @@
-window.addEventListener("load", () => {
-    tsParticles.load("tsparticles", {
-        fullScreen: { enable: true },
-        background: { color: "#000" },
-        particles: {
-            number: { value: 65 },
-            color: { value: "#00eaff" },
-            shape: { type: "circle" },
-            opacity: {
-                value: 0.8,
-                random: { enable: true, minimumValue: 0.3 },
-                anim: { enable: true, speed: 4, opacity_min: 0.3, sync: false }
-            },
-            size: { value: 2.5, random: { enable: true, minimumValue: 1.5 } },
-            links: { enable: false },
-            move: { enable: true, speed: 0.4, direction: "none", outModes: { default: "out" } }
-        },
-        interactivity: {
-            events: {
-                onHover: { enable: true, mode: "repulse" },
-                onClick: { enable: true, mode: "push" }
-            },
-            modes: { repulse: { distance: 100, duration: 0.4 }, push: { quantity: 4 } }
-        },
-        detectRetina: true
-    });
+document.addEventListener('DOMContentLoaded', () => {
 
-    const sectionServices = document.getElementById("services");
-    const sectionSkills = document.getElementById("skills");
-    const sectionAbout = document.getElementById("about");
-    const sectionProjects = document.getElementById("projects");
-    const btnTecnico = document.getElementById("btn-tecnico");
-    const btnEmpresas = document.getElementById("btn-empresas");
-    const btnIdioma = document.getElementById("btn-idioma");
+    const body = document.body;
+    const themeToggleButtons = document.querySelectorAll('.theme-toggle-btn');
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    let idioma = "PT";
-    let perfilAtual = "tecnico";
+    const mainSections = {
+        services: document.getElementById('services'),
+        skills: document.getElementById('skills'),
+        about: document.getElementById('about'),
+        projects: document.getElementById('projects')
+    };
+
+    const btnTecnico = document.getElementById('btn-tecnico');
+    const btnEmpresas = document.getElementById('btn-empresas');
+    const btnIdioma = document.getElementById('btn-idioma');
+
+    let idioma = 'PT';
+    let perfilAtual = 'tecnico';
 
     const textos = {
         PT: {
@@ -64,16 +47,11 @@ window.addEventListener("load", () => {
                 ["Atualização de Sites", "Atualizamos e modernizamos seu site com tecnologia e design atual."]
             ],
             projectsTitle: "Projetos",
-            projects: [
-                ["Loja de Carros", "Projeto fictício de vitrine de veículos, com foco em responsividade.", "Ver Projeto", "GitHub"],
-                ["Projeto em Breve", ""],
-                ["Projeto em Breve", ""]
-            ]
         },
         EN: {
             menu: ["Start", "Services", "Skills", "About Me", "Projects"],
             hero: "Explore the universe, where every click takes you <span>beyond the stars</span>",
-            btnTecnico: "Technical",
+            btnTecnico: "Technical Profile",
             btnEmpresas: "Business Solutions",
             servicesTitle: "Services",
             skillsTitle: "Skills",
@@ -97,130 +75,122 @@ window.addEventListener("load", () => {
                 ["Website Updates", "We update and modernize your website with current technology and design."]
             ],
             projectsTitle: "Projects",
-            projects: [
-                ["Car Store", "Fictional vehicle showcase project, focused on responsiveness.", "View Project", "GitHub"],
-                ["Coming Soon", ""],
-                ["Coming Soon", ""]
-            ]
         }
     };
 
-    function atualizarIdioma() {
+    const applyTheme = (theme) => {
+        if (theme === 'light') {
+            body.classList.add('light-mode');
+        } else {
+            body.classList.remove('light-mode');
+        }
+    };
+
+    const toggleTheme = () => {
+        const currentTheme = body.classList.contains('light-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+        applyTheme(currentTheme);
+    };
+
+    const loadTheme = () => {
+        let savedTheme = localStorage.getItem('theme');
+        if (!savedTheme) {
+            // Se não houver tema salvo, usa a preferência do sistema
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            savedTheme = prefersDark ? 'dark' : 'light';
+        }
+        applyTheme(savedTheme);
+    };
+
+    const initParticles = () => {
+        const bgColor = getComputedStyle(body).getPropertyValue('--bg-color').trim();
+        const particleColor = getComputedStyle(body).getPropertyValue('--accent-color-primary').trim();
+        
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: true, zIndex: -1 },
+            background: { color: bgColor },
+            particles: {
+                number: { value: 65 },
+                color: { value: particleColor },
+                shape: { type: "circle" },
+                opacity: { value: { min: 0.3, max: 0.8 } },
+                size: { value: { min: 1.5, max: 2.5 } },
+                move: { enable: true, speed: 0.4, direction: "none", outModes: { default: "out" } }
+            },
+            interactivity: {
+                events: {
+                    onHover: { enable: true, mode: "repulse" },
+                    onClick: { enable: true, mode: "push" }
+                },
+                modes: { repulse: { distance: 100 }, push: { quantity: 4 } }
+            },
+            detectRetina: true
+        });
+    };
+
+
+    const setText = (selector, text) => {
+        const el = document.querySelector(selector);
+        if (el) el.innerHTML = text;
+    };
+
+    const atualizarIdioma = () => {
         const t = textos[idioma];
-        const setText = (id, text) => {
-            const el = document.getElementById(id);
-            if (el) el.innerHTML = text;
-        };
-
-        setText("menu-top", t.menu[0]);
-        setText("menu-services", t.menu[1]);
-        setText("menu-skills", t.menu[2]);
-        setText("menu-about", t.menu[3]);
-        setText("menu-projects", t.menu[4]);
-
-        setText("menu-top-desktop", t.menu[0]);
-        setText("menu-services-desktop", t.menu[1]);
-        setText("menu-skills-desktop", t.menu[2]);
-        setText("menu-about-desktop", t.menu[3]);
-        setText("menu-projects-desktop", t.menu[4]);
-
-        const heroH2 = document.querySelector(".hero-text h2");
-        if (heroH2) heroH2.innerHTML = t.hero;
-
+        
+        ['top', 'services', 'skills', 'about', 'projects'].forEach((item, i) => {
+            setText(`#menu-${item}`, t.menu[i]);
+            setText(`#menu-${item}-desktop`, t.menu[i]);
+        });
+        
+        setText(".hero-text h2", t.hero);
         if (btnTecnico) btnTecnico.textContent = t.btnTecnico;
         if (btnEmpresas) btnEmpresas.textContent = t.btnEmpresas;
-        btnIdioma.textContent = idioma === "PT" ? "EN" : "PT";
+        if (btnIdioma) btnIdioma.textContent = idioma === "PT" ? "EN" : "PT";
+        
+        setText("#services-title", t.servicesTitle);
+        setText("#skills-title", t.skillsTitle);
+        setText("#projects-title", t.projectsTitle);
+        setText("#about-title", t.aboutTitle);
 
-        setText("services-title", t.servicesTitle);
+
         t.services.forEach((s, i) => {
-            setText(`service-${i + 1}-title`, s[0]);
-            setText(`service-${i + 1}-desc`, s[1]);
+            setText(`#service-${i + 1}-title`, s[0]);
+            setText(`#service-${i + 1}-desc`, s[1]);
         });
 
-        setText("skills-title", t.skillsTitle);
-        setText("projects-title", t.projectsTitle);
+        setText("#about-text-1", t.aboutTexts[perfilAtual][0]);
+        setText("#about-text-2", t.aboutTexts[perfilAtual][1]);
+    };
 
-        const projectCards = document.querySelectorAll(".projects .service-card");
-        projectCards.forEach((card, index) => {
-            const h3 = card.querySelector("h3");
-            const p = card.querySelector("p");
-            const linksDiv = card.querySelector(".project-links");
-            const projectData = t.projects[index];
 
-            if (h3) h3.textContent = projectData[0];
-            
-            if (p) {
-                p.textContent = projectData[1] || '';
-                p.style.display = projectData[1] ? 'block' : 'none';
-            }
+      const displaySections = (sectionsToShow = []) => {
 
-            if (linksDiv) {
-                linksDiv.style.display = projectData.length > 2 ? 'flex' : 'none';
-                if (projectData.length > 2) {
-                    const links = linksDiv.querySelectorAll("a");
-                    if (links[0]) links[0].textContent = projectData[2];
-                    if (links[1]) links[1].textContent = projectData[3];
-                }
+        Object.values(mainSections).forEach(section => section.style.display = 'none');
+        sectionsToShow.forEach(sectionKey => {
+            if (mainSections[sectionKey]) {
+                mainSections[sectionKey].style.display = 'block';
             }
         });
+    };
 
-        setText("about-title", t.aboutTitle);
-        setText("about-text-1", t.aboutTexts[perfilAtual][0]);
-        setText("about-text-2", t.aboutTexts[perfilAtual][1]);
-    }
 
-    function handleMenuClick(targetId) {
-        if (targetId === "top") {
-            sectionServices.style.display = "none";
-            sectionSkills.style.display = "none";
-            sectionAbout.style.display = "none";
-            sectionProjects.style.display = "none";
-            document.getElementById("top").scrollIntoView({ behavior: "smooth" });
-            return;
-        }
-
-        if (targetId === "services") {
-            btnEmpresas.click();
-        } else if (targetId === "skills") {
-            btnTecnico.click();
-        } else if (targetId === "about") {
-            sectionServices.style.display = "none";
-            sectionSkills.style.display = "none";
-            sectionAbout.style.display = "block";
-            sectionProjects.style.display = "none";
-            atualizarIdioma();
-        } else if (targetId === "projects") {
-            sectionServices.style.display = "none";
-            sectionSkills.style.display = "none";
-            sectionAbout.style.display = "none";
-            sectionProjects.style.display = "block";
-            atualizarIdioma();
-        }
-
-        const sectionToShow = document.getElementById(targetId);
-        if (sectionToShow) {
-            sectionToShow.scrollIntoView({ behavior: "smooth" });
-        }
-    }
-
+    themeToggleButtons.forEach(btn => btn.addEventListener('click', () => {
+        toggleTheme();
+        initParticles(); 
+    }));
+    
     btnTecnico.addEventListener("click", () => {
         perfilAtual = "tecnico";
-        sectionServices.style.display = "none";
-        sectionSkills.style.display = "block";
-        sectionAbout.style.display = "block";
-        sectionProjects.style.display = "block";
+        displaySections(['skills', 'about', 'projects']);
         atualizarIdioma();
-        sectionSkills.scrollIntoView({ behavior: "smooth" });
+        mainSections.skills.scrollIntoView({ behavior: "smooth" });
     });
 
     btnEmpresas.addEventListener("click", () => {
         perfilAtual = "empresas";
-        sectionServices.style.display = "block";
-        sectionSkills.style.display = "none";
-        sectionAbout.style.display = "block";
-        sectionProjects.style.display = "block";
+        displaySections(['services', 'about', 'projects']);
         atualizarIdioma();
-        sectionServices.scrollIntoView({ behavior: "smooth" });
+        mainSections.services.scrollIntoView({ behavior: "smooth" });
     });
 
     btnIdioma.addEventListener("click", () => {
@@ -228,18 +198,36 @@ window.addEventListener("load", () => {
         atualizarIdioma();
     });
 
-    const menuToggle = document.getElementById("menu-toggle");
-    const mobileMenu = document.getElementById("mobile-menu");
-
     menuToggle.addEventListener("click", () => {
         menuToggle.classList.toggle("active");
         mobileMenu.classList.toggle("active");
     });
-
+    
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', (event) => {
             const targetId = event.target.getAttribute('href').substring(1);
-            handleMenuClick(targetId);
+
+            switch(targetId) {
+                case 'top':
+                    displaySections();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    break;
+                case 'services':
+                    btnEmpresas.click();
+                    break;
+                case 'skills':
+                    btnTecnico.click();
+                    break;
+                case 'about':
+                case 'projects':
+                    const section = mainSections[targetId];
+                    if (section) {
+                       displaySections([targetId]);
+                       section.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    break;
+            }
+
             if (mobileMenu.classList.contains('active')) {
                 menuToggle.classList.remove('active');
                 mobileMenu.classList.remove('active');
@@ -247,9 +235,9 @@ window.addEventListener("load", () => {
         });
     });
 
-    sectionServices.style.display = "none";
-    sectionSkills.style.display = "none";
-    sectionAbout.style.display = "none";
-    sectionProjects.style.display = "none";
+
+    loadTheme();
+    initParticles();
+    displaySections();
     atualizarIdioma();
 });
