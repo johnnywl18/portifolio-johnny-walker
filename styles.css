@@ -226,7 +226,7 @@ body.light-mode .theme-toggle-btn::before {
 }
 .hero-buttons button,
 .projects .project-links a {
-    flex: 1;
+
     padding: 12px 25px;
     font-size: 1rem;
     border: none;
@@ -586,6 +586,11 @@ footer {
     .services-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .projects .project-links a,
+    .hero-buttons button {
+         width: 100%;
+}
 }
 @media (max-width: 600px) {
     .logo {
