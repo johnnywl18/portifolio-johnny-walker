@@ -562,8 +562,10 @@ footer {
         position: static;
         transform: none;
         margin-top: 75px;
-        border-radius: 0;
-        width: 100%;
+        border-radius: 40px;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
     }
     .hero {
         flex-direction: column-reverse;
@@ -607,6 +609,7 @@ footer {
     .hero-img img {
         max-width: 90%;
         margin: 0 auto;
+        margin-left: 0%;
     }
 }
 @media (max-width: 450px) {
@@ -622,7 +625,7 @@ footer {
         padding: 10px 20px;
         font-size: 0.95rem;
         width: 100%;
-        max-width: 300px;
+        max-width: 340px;
     }
 }
 @media (max-width: 350px) {
